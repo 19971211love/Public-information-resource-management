@@ -1,0 +1,21 @@
+CREATE ROLE "DATABASEMANGER";
+GRANT SELECT,INSERT,UPDATE,DELETE
+ON TABLE "员工基本信息","标准信息","工资计发信息","考勤信息","职务信息","部门信息"
+TO "DATABASEMANGER"
+
+CREATE ROLE "WORKERS";
+GRANT SELECT
+ON TABLE "员工基本信息","工资标准","工资计发信息","考勤信息","职务信息","部门信息"
+TO "WORKERS";
+GRANT UPDATE
+ON TABLE "员工基本信息"
+TO "WORKERS";
+
+CREATE ROLE "LEADERS";
+GRANT SELECT
+ON TABLE "员工基本信息","工资标准","工资计发信息","考勤信息","职务信息","部门信息"
+TO "LEASERS";
+GRANT UPDATE,DELETE,INSERT
+ON TABLE "LEADERSVIEW"
+TO "LEADRRS";
+
